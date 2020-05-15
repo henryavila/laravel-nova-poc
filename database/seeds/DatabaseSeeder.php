@@ -11,6 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        factory(App\User::class)->create([
+            'name'  => 'Admin',
+            'email'  => 'admin@example.com',
+            'password'  => \Illuminate\Support\Facades\Hash::make('secret'),
+            'active'  => true,
+        ]);
+        factory(App\User::class, 50)->create();
     }
 }

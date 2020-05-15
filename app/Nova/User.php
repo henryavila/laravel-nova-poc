@@ -3,7 +3,9 @@
 namespace App\Nova;
 
 use App\Nova\Actions\TestAction;
+use App\Nova\Filters\ActiveFilter;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
@@ -44,6 +46,8 @@ class User extends Resource
     {
         return [
             ID::make()->sortable(),
+
+            Boolean::make('Active', 'active'),
 
             Gravatar::make()->maxWidth(50),
 
